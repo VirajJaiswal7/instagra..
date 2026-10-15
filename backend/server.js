@@ -13,6 +13,7 @@ import stories from './routes/storyRoutes.js'
 import notifications from './routes/notificationRoutes.js'
 
 const app = express()
+app.set('trust proxy', 1)
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }))
 app.use(express.json()); app.use(cookieParser())
 app.use('/uploads', express.static(path.resolve('uploads'), { setHeaders: (r) => r.setHeader('Cross-Origin-Resource-Policy', 'cross-origin') }))
